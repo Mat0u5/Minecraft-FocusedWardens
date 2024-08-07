@@ -27,6 +27,9 @@ public class ConfigManager {
                 try (OutputStream output = new FileOutputStream(configFile)) {
                     // Add default properties or leave it empty
                     properties.setProperty("enabled","true");
+                    //properties.setProperty("ignoreWardenSounds","true");
+                    properties.setProperty("ignoreNonEntitySounds","true");
+                    properties.setProperty("ignoreNonPlayerSounds","false");
                     properties.store(output, null);
                 }
             } catch (IOException ex) {

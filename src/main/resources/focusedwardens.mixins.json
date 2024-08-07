@@ -3,7 +3,7 @@
 	"package": "net.mat0u5.focusedwardens.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"VibrationListenerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
