@@ -15,19 +15,12 @@ public class Events {
 
     public static void register() {
     }
-    public static void wardenListen(ServerWorld world, GameEvent event, GameEvent.Emitter emitter, Vec3d emitterPos, CallbackInfoReturnable<Boolean> cir) {
+    public static void wardenListen(GameEvent.Emitter emitter, CallbackInfoReturnable<Boolean> cir) {
         String enabled = Main.config.getProperty("enabled");
         if (enabled == null) return;
         if (!enabled.equalsIgnoreCase("true")) return;
 
         Entity sourceEntity = emitter.sourceEntity();
-/*Useless??
-        String ignoreWardenSounds = Main.config.getProperty("ignoreWardenSounds");
-        if (ignoreWardenSounds != null) {
-            if ((sourceEntity instanceof WardenEntity) && ignoreWardenSounds.equalsIgnoreCase("true")) {
-                cir.setReturnValue(false);
-            }
-        }*/
 
         String ignoreNonEntitySounds = Main.config.getProperty("ignoreNonEntitySounds");
         if (ignoreNonEntitySounds != null) {

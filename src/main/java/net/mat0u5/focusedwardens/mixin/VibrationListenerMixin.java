@@ -3,6 +3,7 @@ package net.mat0u5.focusedwardens.mixin;
 
 import net.mat0u5.focusedwardens.events.Events;
 import net.minecraft.entity.Entity;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.event.GameEvent;
@@ -20,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class VibrationListenerMixin implements GameEventListener {
 
     @Inject(method = "listen", at = @At("HEAD"), cancellable = true)
-    private void onListen(ServerWorld world, GameEvent event, GameEvent.Emitter emitter, Vec3d emitterPos, CallbackInfoReturnable<Boolean> cir) {
-        Events.wardenListen(world, event, emitter, emitterPos, cir);
+    private void onListen(ServerWorld world, RegistryEntry<GameEvent> event, GameEvent.Emitter emitter, Vec3d emitterPos, CallbackInfoReturnable<Boolean> cir) {
+        Events.wardenListen(emitter, cir);
     }
 }
