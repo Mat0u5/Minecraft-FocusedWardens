@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(VibrationListener.class)
 public abstract class VibrationListenerMixin implements GameEventListener {
 
-    @Inject(method = "listen", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "listen(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/registry/entry/RegistryEntry;Lnet/minecraft/world/event/GameEvent$Emitter;Lnet/minecraft/util/math/Vec3d;)Z", at = @At("HEAD"), cancellable = true)
     private void onListen(ServerWorld world, RegistryEntry<GameEvent> event, GameEvent.Emitter emitter, Vec3d emitterPos, CallbackInfoReturnable<Boolean> cir) {
         Events.wardenListen(emitter, cir);
     }
